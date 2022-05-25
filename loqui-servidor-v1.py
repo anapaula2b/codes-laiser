@@ -34,7 +34,7 @@ contador5 = 0
 contador6 = 0
 
 tempoH = 0
-tempoM = [0,0]
+tempoM = [0,0,0,0,0,0]
 
 #declarar as listas 
 
@@ -95,8 +95,7 @@ def iniciarCronometroPC(contador, minutos, pc, nome, comando):
 	pcs = [pc]
 	name = [nome]
 	def contaTempo():
-		msg = 'False'
-		udp_socket.sendto(msg.encode("utf-8"), (ip[0], 7788))
+		
 		temporizador = '00:00'
 		if contar[comando] == 'True':
 
@@ -104,11 +103,11 @@ def iniciarCronometroPC(contador, minutos, pc, nome, comando):
 			m,s = map(int,tempoTela2.split(':'))
 			
 			m = int(mins[0])
-			tempoM[contador] = m
+			tempoM[comando] = mins[0]
+			print(tempoM[comando])
 			s = int(cont[0])
 
-			if m == 00 and s == 00:	
-				contar[1] = 'False'
+	
 
 			if s == 00:
 				mins[0] -= 1
@@ -175,9 +174,12 @@ def iniciarTempo():
 				Tminutos[0] = 90
 			if tempo1 == '2h': 
 				Tminutos[0] = 120
-
+			
+			msg = 'False'
+			udp_socket.sendto(msg.encode("utf-8"), (ip[0], 7788))
 			contar[0] = 'True'		
 			iniciarCronometroPC(contador, Tminutos[0], pc1, pessoa[0], 0)
+			
 		
 		if ip[0] == '10.15.2.43':
 
@@ -193,6 +195,9 @@ def iniciarTempo():
 				Tminutos[1] = 90
 			if tempo2 == '2h': 
 				Tminutos[1] = 120
+
+			msg = 'False'
+			udp_socket.sendto(msg.encode("utf-8"), (ip[0], 7788))
 				
 			contar[1] = 'True'
 			iniciarCronometroPC(contador, Tminutos[1], pc2, pessoa[1], 1)
