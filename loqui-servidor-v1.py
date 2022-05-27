@@ -298,9 +298,12 @@ def botaoPCprecionado():
 	print(ip[0])
 
 app = tk.Tk()
-app.geometry('600x400')
+app.geometry('740x500')
+app.title('LoQUI-SERVER 1.0 ')
+app.resizable(width=False, height=False)
 
 primeiroContainer = Frame()
+primeiroContainer["background"] = '#d3d3d3'
 primeiroContainer["pady"] = 10
 primeiroContainer.pack()
 
@@ -317,7 +320,7 @@ quartoContainer["pady"] = 30
 quartoContainer.pack()
 # radioValue = tk.IntVar()
 
-comboExample = ttk.Combobox(primeiroContainer,values=[ "30 min", "1h", "1h 30 min","2h",], width=3)
+comboExample = ttk.Combobox(primeiroContainer,values=[ "30 min", "1h", "1h 30 min"], width=3)
 comboExample.pack(ipadx=20, ipady=5, padx=5, pady=5,side=LEFT)
 
 comboExample.current(1)
@@ -342,12 +345,34 @@ pc5.pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT)
 pc6 = Radiobutton(terceiroContainer,background='#d3d3d3',text=f'PC{7}', value={7}, height=6,width=9, padx=20, indicatoron=0)
 pc6.pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT)
 
+photo = PhotoImage(file = r"C:\\Users\\Anapb\\Desktop\\clock_green.png") 
+photoimage = photo.subsample(3, 3) 
 
-Button(primeiroContainer,text='Iniciar Tempo', command=iniciarTempo).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT)
-Button(primeiroContainer,text='Pausar', command=pausarCronometroPC).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
-Button(primeiroContainer,text='Continuar', command=continuarCronometroPC).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
-Button(primeiroContainer,text='Desbloquear').pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT)
-Button(primeiroContainer,text='Bloquear').pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
+photo1 = PhotoImage(file = r"C:\\Users\\Anapb\\Desktop\\clock_yellow.png") 
+photoimage1 = photo1.subsample(3, 3) 
+
+photo2 = PhotoImage(file = r"C:\\Users\\Anapb\\Desktop\\clock_blue.png") 
+photoimage2 = photo2.subsample(3, 3)
+
+photo3 = PhotoImage(file = r"C:\\Users\\Anapb\\Desktop\\clock_red.png") 
+photoimage3 = photo3.subsample(3, 3)
+
+photo4 = PhotoImage(file = r"C:\\Users\\Anapb\\Desktop\\closed_lock.png") 
+photoimage4 = photo4.subsample(3, 3)
+
+photo5 = PhotoImage(file = r"C:\\Users\\Anapb\\Desktop\\lock_open.png") 
+photoimage5 = photo5.subsample(3, 3)
+
+
+
+Button(primeiroContainer,text='Iniciar',image = photoimage, compound = TOP, command=iniciarTempo).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
+Button(primeiroContainer,text='Pausar', image = photoimage2, compound = TOP).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
+
+Button(primeiroContainer,text='Continuar', image = photoimage1, compound = TOP).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
+Button(primeiroContainer,text='Finalizar', image = photoimage3, compound = TOP).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
+Button(primeiroContainer,text='Desbloquear', image = photoimage5, compound = TOP).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
+Button(primeiroContainer,text='Bloquear', image = photoimage4, compound = TOP).pack(ipadx=20, ipady=5, padx=5, pady=5, side=LEFT )
+
 
 
 
